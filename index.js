@@ -38,3 +38,20 @@ app.get('/film', async (req, res) => {
         res.send(err);
     }
 });
+
+app.put('/film/:id', async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+
+    try {
+        const film = await db.Film.findByPk(id);
+        if (!film) {
+            return res.status(404).send({ message: 'Film not found' });
+        }
+
+        await film.update(data);
+        res.send({ message: 'Film updated successfully', film });
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
