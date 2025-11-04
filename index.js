@@ -29,3 +29,12 @@ app.post('/film', async (req, res) => {
         res.send(err);
     }
 });
+
+app.get('/film', async (req, res) => {
+    try {
+        const films = await db.Film.findAll();
+        res.send(films);
+    } catch (err) {
+        res.send(err);
+    }
+});
