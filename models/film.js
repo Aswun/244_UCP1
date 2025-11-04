@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         deskripsi: {
-            type: DataTypes.TEXT
+            type: DataTypes.STRING
         },
         sutradara: {
             type: DataTypes.STRING
